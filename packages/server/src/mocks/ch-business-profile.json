@@ -1,0 +1,66 @@
+{
+  "date_of_creation": "1985-03-21",
+  "accounts": {
+    "accounting_reference_date": {
+      "month": "07",
+      "day": "31"
+    },
+    "next_due": "2019-04-30",
+    "next_accounts": {
+      "period_end_on": "2018-07-31",
+      "period_start_on": "2017-07-29",
+      "overdue": false,
+      "due_on": "2019-04-30"
+    },
+    "overdue": false,
+    "last_accounts": {
+      "period_start_on": "2016-07-30",
+      "type": "full",
+      "made_up_to": "2017-07-28",
+      "period_end_on": "2017-07-28"
+    },
+    "next_made_up_to": "2018-07-31"
+  },
+  "company_number": "01897720",
+  "company_name": "THE APP BUSINESS LIMITED",
+  "sic_codes": [
+    "58290",
+    "61200",
+    "62011"
+  ],
+  "status": "active",
+  "undeliverable_registered_office_address": false,
+  "last_full_members_list_date": "2015-12-31",
+  "has_been_liquidated": false,
+  "jurisdiction": "england-wales",
+  "registered_office_address": {
+    "address_line_1": "One",
+    "postal_code": "EC4Y 0AH",
+    "country": "England",
+    "address_line_2": "Tudor Street",
+    "locality": "London"
+  },
+  "type": "ltd",
+  "has_insolvency_history": false,
+  "etag": "f05ea48834de52b2c60a1176e223b20335362910",
+  "company_status": "active",
+  "has_charges": false,
+  "previous_company_names": [{
+    "effective_from": "1985-03-21",
+    "ceased_on": "2009-10-22",
+    "name": "PEERFLEX LIMITED"
+  }],
+  "confirmation_statement": {
+    "last_made_up_to": "2017-12-31",
+    "next_made_up_to": "2018-12-31",
+    "next_due": "2019-01-14",
+    "overdue": false
+  },
+  "links": {
+    "self": "/company/01897720",
+    "filing_history": "/company/01897720/filing-history",
+    "officers": "/company/01897720/officers"
+  },
+  "registered_office_is_in_dispute": false,
+  "can_file": true
+}
