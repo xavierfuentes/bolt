@@ -1,6 +1,6 @@
 const Hapi = require('hapi');
 
-// const companiesApi = require('./modules/companies');
+const companiesApi = require('./modules/companies');
 
 // Create a server with a host and port
 const server = Hapi.server({
@@ -10,7 +10,7 @@ const server = Hapi.server({
 
 // Start the server
 const init = async () => {
-  // await server.register(companiesApi);
+  await server.register(companiesApi);
   await server.start();
   return server;
 };
