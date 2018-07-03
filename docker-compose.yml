@@ -1,0 +1,33 @@
+version: '3'
+services:
+  server:
+    build: ./packages/server
+    container_name: tab-edr-server
+    ports:
+      - "3000:3000"
+    # depends_on:
+    #   - mongodb
+
+  # frontend:
+  #   build: ./packages/server
+  #   work_dir: /usr/app
+  #   image: node:7
+  #   command: npm run webpack
+  #   volumes:
+  #     - ./packages/frontend:/usr/app
+  #   ports:
+  #     - "4000:4000"
+
+  # https://github.com/denisolek/docker-node-mongo-react-STARTER
+  # public:
+  #   image: nginx
+  #   ports:
+  #       - "8080:8080"
+  #   volumes:
+  #       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+  #       - ./frontend/dist:/usr/share/nginx/html
+
+  # mongodb:
+  #   image: mongo
+  #   ports:
+  #       - "27017:27017"

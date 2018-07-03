@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "./build/main.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "backpack build",
+    "dev": "backpack",
+    "start": "backpack build && node ./build/main.js"
+  },
+  "dependencies": {
+    "hapi": "^17.5.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "backpack-core": "^0.7.0"
+  }
+}
