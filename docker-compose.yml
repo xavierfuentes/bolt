@@ -7,16 +7,16 @@ services:
       - "3000:3000"
     # depends_on:
     #   - mongodb
+    command: npm run dev
 
-  # frontend:
-  #   build: ./packages/server
-  #   work_dir: /usr/app
-  #   image: node:7
-  #   command: npm run webpack
-  #   volumes:
-  #     - ./packages/frontend:/usr/app
-  #   ports:
-  #     - "4000:4000"
+  webapp:
+    build: ./packages/webapp
+    container_name: tab-edr-webapp
+    ports:
+      - "4000:4000"
+    depends_on:
+      - server
+    command: npm run dev
 
   # https://github.com/denisolek/docker-node-mongo-react-STARTER
   # public:
