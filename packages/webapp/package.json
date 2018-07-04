@@ -1,21 +1,26 @@
 {
-  "name": "edr-webapp",
+  "name": "webapp",
   "version": "0.1.0",
-  "author": "Xavier Fuentes <xavier.fuentes@theappbusiness.com>",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "dev": "next -p 4000 -H 0.0.0.0",
-    "build": "next build",
-    "start": "next build && next start -p 4000 -H 0.0.0.0"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
-    "babel-plugin-emotion": "^9.2.4",
-    "emotion": "^9.2.4",
-    "emotion-server": "^9.2.4",
-    "emotion-theming": "^9.2.4",
-    "next": "^6.1.1",
+    "axios": "^0.18.0",
+    "normalize.css": "^8.0.0",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.4",
+    "redux-logger": "^3.0.6"
   }
+
 }
