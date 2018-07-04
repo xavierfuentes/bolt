@@ -11,6 +11,7 @@
     "start": "backpack build && node ./build/main.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "hapi": "^17.5.2",
     "uuid": "^3.3.2"
   },

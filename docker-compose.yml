@@ -5,8 +5,13 @@ services:
     container_name: tab-edr-server
     ports:
       - "3000:3000"
+    volumes:
+      - './packages/server:/usr/src/app'
+      - '/usr/src/app/node_modules'
     depends_on:
       - mongodb
+    environment:
+      - PORT=3000
     command: npm run dev
 
   webapp:
@@ -14,9 +19,15 @@ services:
     container_name: tab-edr-webapp
     ports:
       - "4000:4000"
+    volumes:
+      - './packages/webapp:/usr/src/app'
+      - '/usr/src/app/node_modules'
     depends_on:
       - server
-    command: npm run dev
+    environment:
+      - PORT=4000
+      - NODE_ENV=development
+    command: npm start
 
   # https://github.com/denisolek/docker-node-mongo-react-STARTER
   # public:
@@ -29,5 +40,6 @@ services:
 
   mongodb:
     image: mongo
+    container_name: tab-edr-mongo
     ports:
         - "27017:27017"

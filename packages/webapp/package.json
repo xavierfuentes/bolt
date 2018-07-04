@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
+    "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://0.0.0.0:3000",
   "dependencies": {
     "axios": "^0.18.0",
     "normalize.css": "^8.0.0",
@@ -22,5 +23,4 @@
     "react-scripts": "1.1.4",
     "redux-logger": "^3.0.6"
   }
-
 }
