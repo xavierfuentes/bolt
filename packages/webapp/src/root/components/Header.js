@@ -1,16 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Header = ({ onLogOut }) => {
-  const handleLogOutClick = _ => {
-    onLogOut();
-  };
-
-  return (
-    <div>
-      <h3>Bank</h3>
-      <button onClick={handleLogOutClick}>Sign out</button>
-    </div>
-  );
-};
+const Header = ({ onLogOut }) => (
+  <div>
+    <Link to="/">Natwest</Link>
+    <Link to="/settings">Settings</Link>
+    <button onClick={onLogOut}>Sign out</button>
+  </div>
+);
 
 export default Header;
