@@ -1,8 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import { createBrowserHistory } from 'history';
+import { connectRouter, routerMiddleware as reactRouterMiddleware } from 'connected-react-router';
 
 import rootReducer from './root/reducers';
+
+export const history = createBrowserHistory();
 
 const configureStore = preloadedState => {
   const ignoredActionTypes = [];
@@ -10,7 +14,8 @@ const configureStore = preloadedState => {
     collapsed: true,
     predicate: (getState, { type }) => !ignoredActionTypes.includes(type),
   });
-  const middlewares = [thunkMiddleware, loggerMiddleware];
+  const routerMiddleware = reactRouterMiddleware(history);
+  const middlewares = [thunkMiddleware, routerMiddleware, loggerMiddleware];
   const enhancers = [applyMiddleware(...middlewares)];
 
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
@@ -23,7 +28,11 @@ const configureStore = preloadedState => {
       : compose;
   /* eslint-enable */
 
-  const store = createStore(rootReducer, preloadedState, composeEnhancers(...enhancers));
+  const store = createStore(
+    connectRouter(history)(rootReducer),
+    preloadedState,
+    composeEnhancers(...enhancers)
+  );
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {
     // Enable Webpack hot module replacement for reducers
