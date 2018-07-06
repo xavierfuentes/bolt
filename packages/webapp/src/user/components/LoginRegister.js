@@ -12,9 +12,9 @@ class LoginRegister extends React.Component {
     this.setState(previousState => ({ isRegistered: !previousState.isRegistered }));
   };
 
-  handleLogin = ({ businessId, password }) => {
+  handleLogin = ({ email, password }) => {
     const { login } = this.props;
-    login({ businessId, password });
+    login({ email, password });
   };
 
   handleRegister = () => {};

@@ -7,14 +7,14 @@ import Address from './Address';
 
 class Profile extends React.Component {
   static propTypes = {
-    businessId: PropTypes.number.isRequired,
+    registrationNumber: PropTypes.number.isRequired,
     fetchBusinessProfile: PropTypes.func,
     profile: PropTypes.shape({}),
   };
 
   componentDidMount() {
-    const { businessId, fetchBusinessProfile } = this.props;
-    fetchBusinessProfile(businessId);
+    const { registrationNumber, fetchBusinessProfile } = this.props;
+    fetchBusinessProfile({ registrationNumber });
   }
 
   render() {
@@ -69,7 +69,7 @@ class Profile extends React.Component {
               <h3>Address Information</h3>
               <span>Updated dd/mm/yy</span>
             </div>
-            <Address data={company.address} />
+            {/* <Address data={company.address} /> */}
           </div>
 
           <div>
@@ -77,7 +77,7 @@ class Profile extends React.Component {
               <h3>Key Contacts</h3>
               <span>Updated dd/mm/yy</span>
             </div>
-            <Contacts data={individuals} />
+            {/* <Contacts data={individuals} /> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // create a schema
-const profileSchema = new mongoose.Schema({
+const businessProfileSchema = new mongoose.Schema({
   company: {
     name: String,
     businessType: String,
@@ -35,4 +35,4 @@ const profileSchema = new mongoose.Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-module.exports = mongoose.model('Profile', profileSchema, 'profiles');
+module.exports = mongoose.model('BusinessProfile', businessProfileSchema, 'profiles');

@@ -30,35 +30,41 @@ const get = ({ apiKey, url, query } = {}) => {
 };
 
 // Profile
-const fetchCompany = ({ companyNumber }) =>
-  Promise.all([
-    fetchCompanyProfile({ companyNumber }),
-    fetchCompanyAddress({ companyNumber }),
-    fetchCompanyOfficers({ companyNumber }),
+const fetchCompany = ({ registrationNumber }) => {
+  console.log(registrationNumber);
+  return Promise.all([
+    fetchCompanyProfile({ registrationNumber }),
+    fetchCompanyAddress({ registrationNumber }),
+    fetchCompanyOfficers({ registrationNumber }),
   ]).then(([profile, address, officers]) => ({ profile, address, officers }));
-const fetchCompanyProfile = ({ companyNumber } = {}) =>
-  !companyNumber
-    ? requiredParamAsync('companyNumber')
-    : get({ apiKey, url: `/company/${companyNumber}` });
-const fetchCompanyAddress = ({ companyNumber } = {}) =>
-  !companyNumber
-    ? requiredParamAsync('companyNumber')
-    : get({ apiKey, url: `/company/${companyNumber}/registered-office-address` });
-const fetchCompanyOfficers = ({ companyNumber } = {}) =>
-  !companyNumber
-    ? requiredParamAsync('companyNumber')
-    : get({ apiKey, url: `/company/${companyNumber}/officers` }).then(r => r.items); // todo: check whether there are more items
+};
+const fetchCompanyProfile = ({ registrationNumber } = {}) =>
+  !registrationNumber
+    ? requiredParamAsync('registrationNumber')
+    : get({ apiKey, url: `/company/${registrationNumber}` });
+const fetchCompanyAddress = ({ registrationNumber } = {}) =>
+  !registrationNumber
+    ? requiredParamAsync('registrationNumber')
+    : get({ apiKey, url: `/company/${registrationNumber}/registered-office-address` });
+const fetchCompanyOfficers = ({ registrationNumber } = {}) =>
+  !registrationNumber
+    ? requiredParamAsync('registrationNumber')
+    : get({ apiKey, url: `/company/${registrationNumber}/officers` }).then(r => r.items); // todo: check whether there are more items
 
 // Search
 const searchAll = ({ query } = {}) =>
-  !query ? requiredParamAsync('companyNumber') : get({ apiKey, url: '/search', query });
+  !query ? requiredParamAsync('registrationNumber') : get({ apiKey, url: '/search', query });
 const searchForCompanies = ({ query } = {}) =>
-  !query ? requiredParamAsync('companyNumber') : get({ apiKey, url: '/search/companies', query });
+  !query
+    ? requiredParamAsync('registrationNumber')
+    : get({ apiKey, url: '/search/companies', query });
 const searchForOfficers = ({ query } = {}) =>
-  !query ? requiredParamAsync('companyNumber') : get({ apiKey, url: '/search/officers', query });
+  !query
+    ? requiredParamAsync('registrationNumber')
+    : get({ apiKey, url: '/search/officers', query });
 const searchForDisqualifiedOfficers = ({ query } = {}) =>
   !query
-    ? requiredParamAsync('companyNumber')
+    ? requiredParamAsync('registrationNumber')
     : get({ apiKey, url: '/search/disqualified-officers', query });
 
 module.exports = {

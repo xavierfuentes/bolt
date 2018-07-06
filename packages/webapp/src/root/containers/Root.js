@@ -4,7 +4,7 @@ import Root from '../components/Root';
 import { unauthenticate } from '../../user/actions/user';
 
 const mapStateToProps = state => ({
-  isAuthenticated: !!state.user.id,
+  isAuthenticated: !!state.user._id,
 });
 
 const mapDispatchToProps = {

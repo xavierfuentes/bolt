@@ -12,7 +12,6 @@ let access_token = null;
 let refresh_token = null;
 
 const init = async () => {
-  // if (!access_token) {
   // get access token
   console.log('Logging in Experian...');
   const response = await axios({
@@ -32,12 +31,9 @@ const init = async () => {
     });
   access_token = response.access_token;
   refresh_token = response.refresh_token;
-  // } else {
-  //   console.log('already logged in -> ', access_token);
-  // }
 };
 
-const fetchCompany = async ({ companyNumber }) => {
+const fetchCompany = async ({ registrationNumber }) => {
   if (!access_token) {
     await init();
   }
@@ -48,7 +44,7 @@ const fetchCompany = async ({ companyNumber }) => {
     method: 'get',
     url: PROFILE_URL,
     params: { name: 'Test' },
-    // params: { businessref: companyNumber },
+    // params: { businessref: registrationNumber },
     headers: {
       'Cache-Control': 'no-cache',
       Authorization: `Bearer ${access_token}`,

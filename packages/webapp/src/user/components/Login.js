@@ -2,7 +2,7 @@ import React from 'react';
 
 class Login extends React.Component {
   state = {
-    businessId: 11076174,
+    email: 'xavier.fuentes@theappbusiness.com',
     password: 11076174,
   };
 
@@ -13,18 +13,18 @@ class Login extends React.Component {
 
   handleSubmit = event => {
     const { onSubmit } = this.props;
-    const { businessId, password } = this.state;
+    const { email, password } = this.state;
 
-    onSubmit({ businessId, password });
+    onSubmit({ email, password });
   };
 
   render() {
-    const { businessId, password } = this.state;
+    const { email, password } = this.state;
     return (
       <div>
         <article>
-          <label htmlFor="businessId">
-            User<input name="businessId" value={businessId} onChange={this.handleChange} />
+          <label htmlFor="email">
+            User<input name="email" type="email" value={email} onChange={this.handleChange} />
           </label>
         </article>
         <article>

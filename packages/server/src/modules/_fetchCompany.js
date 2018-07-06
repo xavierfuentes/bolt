@@ -1,7 +1,7 @@
-const { v4 } = require('uuid');
+// const { v4 } = require('uuid');
 
 const companiesHouseService = require('../../services/companiesHouse');
-const rbsService = require('../../services/rbs');
+// const rbsService = require('../../services/rbs');
 const experianService = require('../../services/experian');
 
 const fetchCompanyHandler = async request => {
@@ -17,7 +17,7 @@ const fetchCompanyHandler = async request => {
   }
 
   const [rbsData, chData, expData] = await Promise.all([
-    rbsService.fetchCompany({ companyNumber }),
+    // rbsService.fetchCompany({ companyNumber }),
     companiesHouseService.fetchCompany({ companyNumber }),
     experianService.fetchCompany({ companyNumber }),
   ]);

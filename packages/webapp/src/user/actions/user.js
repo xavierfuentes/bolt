@@ -1,3 +1,7 @@
+import { post } from 'axios';
+
+import { fetchBusinessProfile } from '../../profile/actions/profile';
+
 export const actionTypes = {
   AUTHENTICATE_REQUEST: '@EDR/USER/AUTHENTICATE/REQUEST',
   AUTHENTICATE_SUCCESS: '@EDR/USER/AUTHENTICATE/SUCCESS',
@@ -27,12 +31,17 @@ export const unauthenticateRequest = () => ({
   type: actionTypes.UNAUTHENTICATE_REQUEST,
 });
 
-export const authenticate = ({ businessId, password }) => async dispatch => {
-  const user = {
-    id: 1,
-    business: { id: businessId },
-  };
-  dispatch(authenticateSuccess(user));
+export const authenticate = ({ email, password }) => async dispatch => {
+  dispatch(authenticateRequest());
+
+  try {
+    const response = await post('/me', { email, password });
+    const user = await response.data;
+    dispatch(authenticateSuccess(user));
+    // dispatch(fetchBusinessProfile({ registrationNumber: user.company.registrationNumber }));
+  } catch (error) {
+    dispatch(authenticateFailure(error));
+  }
 };
 
 export const unauthenticate = () => async dispatch => {

@@ -20,11 +20,11 @@ export const fetchBusinessProfileFailure = error => ({
   payload: { error },
 });
 
-export const fetchBusinessProfile = businessId => async dispatch => {
+export const fetchBusinessProfile = ({ registrationNumber }) => async dispatch => {
   dispatch(fetchBusinessProfileRequest());
 
   try {
-    const response = await get(`/company/${businessId}`);
+    const response = await get(`/company/${registrationNumber}`);
     const profile = await response.data;
     dispatch(fetchBusinessProfileSuccess(profile));
   } catch (error) {
