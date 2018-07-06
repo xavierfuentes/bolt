@@ -7,7 +7,7 @@ const Footer = () => (
       <span role="img" aria-label="heart">
         ❤️
       </span>{' '}
-      @TAB
+      @BOLT
     </span>
   </div>
 );

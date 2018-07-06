@@ -2,8 +2,8 @@ import React from 'react';
 
 class Login extends React.Component {
   state = {
-    email: 'xavier.fuentes@theappbusiness.com',
-    password: 11076174,
+    email: 'me@xavierfuentes.com',
+    password: 'password',
   };
 
   handleChange = ({ target }) => {
@@ -29,7 +29,12 @@ class Login extends React.Component {
         </article>
         <article>
           <label htmlFor="password">
-            Password<input name="password" value={password} onChange={this.handleChange} />
+            Password<input
+              name="password"
+              type="password"
+              value={password}
+              onChange={this.handleChange}
+            />
           </label>
         </article>
         <button onClick={this.handleSubmit}>Sign in</button>

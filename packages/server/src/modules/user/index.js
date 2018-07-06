@@ -1,16 +1,16 @@
-const UserController = require('./controller');
+const userController = require('./controller');
 
-const userApi = {
-  name: 'userApi',
+const userModule = {
+  name: 'userModule',
   register: async server => {
     server.route([
       {
         method: 'POST',
         path: '/me',
-        handler: UserController.get,
+        handler: userController.get,
       },
     ]);
   },
 };
 
-module.exports = userApi;
+module.exports = userModule;

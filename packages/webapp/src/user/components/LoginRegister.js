@@ -13,8 +13,8 @@ class LoginRegister extends React.Component {
   };
 
   handleLogin = ({ email, password }) => {
-    const { login } = this.props;
-    login({ email, password });
+    const { authenticate } = this.props;
+    authenticate({ email, password });
   };
 
   handleRegister = () => {};

@@ -5,18 +5,16 @@ import { Route, Switch } from 'react-router';
 import Header from './Header';
 import Footer from './Footer';
 import PageNotFound from './PageNotFound';
-import Profile from '../../profile/containers/Profile';
+import Dashboard from '../../dashboard/components/Dashboard';
 import LoginRegister from '../../user/containers/LoginRegister';
 
-const Root = ({ isAuthenticated = false, logout }) => (
+const Root = ({ isAuthenticated = false, unauthenticate }) => (
   <div>
     {isAuthenticated ? (
       <div>
-        <Header onLogOut={logout} />
+        <Header onLogOut={unauthenticate} />
         <Switch>
-          <Route exact path="/" component={Profile} />
-          {/* <Route path="/settings" component={Settings}/>
-          <Route path="/timeline" component={Timeline}/> */}
+          <Route exact path="/" component={Dashboard} />
           <Route component={PageNotFound} />
         </Switch>
         <Footer />
@@ -29,7 +27,7 @@ const Root = ({ isAuthenticated = false, logout }) => (
 
 Root.propTypes = {
   isAuthenticated: PropTypes.bool,
-  logout: PropTypes.func,
+  unauthenticate: PropTypes.func,
 };
 
 export default Root;

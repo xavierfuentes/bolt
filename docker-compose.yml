@@ -1,9 +1,9 @@
-version: '3.1'
+version: '3'
 services:
   server:
     build:
       context: "./packages/server"
-    container_name: "tab-edr-server"
+    container_name: "bolt-server"
     ports:
       - "3000:3000"
     volumes:
@@ -20,7 +20,7 @@ services:
   webapp:
     build:
       context: "./packages/webapp"
-    container_name: "tab-edr-webapp"
+    container_name: "bolt-webapp"
     ports:
       - "4000:4000"
     volumes:
@@ -37,7 +37,7 @@ services:
 
   mongodb:
     image: mongo
-    container_name: "tab-edr-mongo"
+    container_name: "bolt-mongo"
     restart: always
     ports:
       - "27017:27017"
@@ -47,5 +47,5 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: edr
+      MONGO_INITDB_DATABASE: bolt
     command: --smallfiles

@@ -1,7 +1,7 @@
 {
-  "name": "tab-edr",
+  "name": "bolt",
   "version": "0.1.0",
-  "author": "Xavier Fuentes <xavier.fuentes@theappbusiness.com>",
+  "author": "Xavier Fuentes <me@xavierfuentes.com>",
   "private": true,
   "scripts": {
     "precommit": "lint-staged"

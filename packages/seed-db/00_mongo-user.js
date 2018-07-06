@@ -1,5 +1,5 @@
 db.createUser({
-  user: 'tab',
-  pwd: 'Sp1tf1r3!',
-  roles: [{ role: 'readWrite', db: 'edr' }],
+  user: 'bolt',
+  pwd: 'Fa5t35t!',
+  roles: [{ role: 'readWrite', db: 'bolt' }],
 });

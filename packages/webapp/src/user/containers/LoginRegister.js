@@ -5,7 +5,7 @@ import { authenticate } from '../actions/user';
 
 const mapStateToProps = state => ({});
 const mapDispatchToProps = {
-  login: authenticate,
+  authenticate,
 };
 
 export default connect(

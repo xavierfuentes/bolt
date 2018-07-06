@@ -1,5 +1,5 @@
 {
-  "name": "tab-edr-webapp",
+  "name": "bolt-webapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://tab-edr-server:3000",
+  "proxy": "http://bolt-server:3000",
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^4.3.0",

@@ -1,7 +1,7 @@
 {
-  "name": "tab-edr-server",
+  "name": "bolt-server",
   "version": "0.1.0",
-  "author": "Xavier Fuentes <xavier.fuentes@theappbusiness.com>",
+  "author": "Xavier Fuentes <me@xavierfuentes.com>",
   "main": "./build/main.js",
   "private": true,
   "license": "MIT",

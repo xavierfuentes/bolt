@@ -1,12 +1,10 @@
 import { post } from 'axios';
 
-import { fetchBusinessProfile } from '../../profile/actions/profile';
-
 export const actionTypes = {
-  AUTHENTICATE_REQUEST: '@EDR/USER/AUTHENTICATE/REQUEST',
-  AUTHENTICATE_SUCCESS: '@EDR/USER/AUTHENTICATE/SUCCESS',
-  AUTHENTICATE_FAILURE: '@EDR/USER/AUTHENTICATE/FAILURE',
-  UNAUTHENTICATE_REQUEST: '@EDR/USER/UNAUTHENTICATE/REQUEST',
+  AUTHENTICATE_REQUEST: '@BOLT/USER/AUTHENTICATE/REQUEST',
+  AUTHENTICATE_SUCCESS: '@BOLT/USER/AUTHENTICATE/SUCCESS',
+  AUTHENTICATE_FAILURE: '@BOLT/USER/AUTHENTICATE/FAILURE',
+  UNAUTHENTICATE_REQUEST: '@BOLT/USER/UNAUTHENTICATE/REQUEST',
 };
 
 export const authenticateRequest = () => ({
@@ -38,7 +36,6 @@ export const authenticate = ({ email, password }) => async dispatch => {
     const response = await post('/me', { email, password });
     const user = await response.data;
     dispatch(authenticateSuccess(user));
-    // dispatch(fetchBusinessProfile({ registrationNumber: user.company.registrationNumber }));
   } catch (error) {
     dispatch(authenticateFailure(error));
   }
