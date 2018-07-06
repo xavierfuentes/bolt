@@ -24,19 +24,19 @@ const fetchCompanyHandler = async request => {
 
   return {
     ...rbsData,
-    individuals: chData.officers.map(({ name, occupation, address }) => ({
-      id: v4(),
-      name: name,
-      role: occupation,
-      address: {
-        line1: address.address_line_1 && address.address_line_1,
-        line2: address.address_line_2 && address.address_line_2,
-        line3: address.address_line_3 && address.address_line_3,
-        country: address.country,
-        postcode: address.postal_code,
-        premises: address.premises,
-      },
-    })),
+    // individuals: chData.officers.map(({ name, occupation, address }) => ({
+    //   id: v4(),
+    //   name: name,
+    //   role: occupation,
+    //   address: {
+    //     line1: address.address_line_1 && address.address_line_1,
+    //     line2: address.address_line_2 && address.address_line_2,
+    //     line3: address.address_line_3 && address.address_line_3,
+    //     country: address.country,
+    //     postcode: address.postal_code,
+    //     premises: address.premises,
+    //   },
+    // })),
     _raw: {
       providers: {
         companiesHouse: chData,

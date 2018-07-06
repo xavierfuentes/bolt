@@ -1,5 +1,5 @@
 const fetchCompanyHandler = require('./fetchCompany');
-const searchCompaniesHandler = require('./searchCompanies');
+// const searchCompaniesHandler = require('./searchCompanies');
 
 const companiesApi = {
   name: 'CompaniesApi',
@@ -10,11 +10,11 @@ const companiesApi = {
         path: '/company/{companyNumber}',
         handler: fetchCompanyHandler,
       },
-      {
-        method: 'GET',
-        path: '/search/companies',
-        handler: searchCompaniesHandler,
-      },
+      // {
+      //   method: 'GET',
+      //   path: '/search/companies',
+      //   handler: searchCompaniesHandler,
+      // },
     ]);
   },
 };

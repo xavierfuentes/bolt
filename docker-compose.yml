@@ -1,9 +1,9 @@
-version: '3'
+version: '3.1'
 services:
   server:
     build:
-      context: ./packages/server
-    container_name: tab-edr-server
+      context: "./packages/server"
+    container_name: "tab-edr-server"
     ports:
       - "3000:3000"
     volumes:
@@ -19,8 +19,8 @@ services:
 
   webapp:
     build:
-      context: ./packages/webapp
-    container_name: tab-edr-webapp
+      context: "./packages/webapp"
+    container_name: "tab-edr-webapp"
     ports:
       - "4000:4000"
     volumes:
@@ -31,12 +31,21 @@ services:
     links:
       - server
     environment:
-      - PORT=4000
-      - NODE_ENV=development
+      PORT: 4000
+      NODE_ENV: development
     command: npm start
 
   mongodb:
     image: mongo
-    container_name: tab-edr-mongo
+    container_name: "tab-edr-mongo"
+    restart: always
     ports:
-        - "27017:27017"
+      - "27017:27017"
+    volumes:
+      # - data-volume:/data/db # adds data persistence
+      - ./packages/seed-db:/docker-entrypoint-initdb.d
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: edr
+    command: --smallfiles
